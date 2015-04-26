@@ -34,5 +34,5 @@ breadcrumbs (CrumbTrail behind here inFront) =
   fromCrumb (Tuple text cr) =
     let attr = case cr of
                  LinkTarget url -> [A.href (runURL url)]
-                 DataTarget i -> [E.onclick (\_ -> E.preventDefault $> i)]
+                 DataTarget i -> [E.onClick (\_ -> E.preventDefault $> i)]
     in H.li_ [ H.a attr [ H.text text ] ]
