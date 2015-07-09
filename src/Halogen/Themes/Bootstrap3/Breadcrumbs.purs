@@ -5,10 +5,11 @@ module Halogen.Themes.Bootstrap3.Breadcrumbs
   , breadcrumbs
   ) where
 
-import Data.Array (map)
+import Prelude
+
 import Data.Tuple
 
-import Control.Functor (($>))
+import Data.Functor (($>))
 
 import Halogen.HTML.Target
 
@@ -20,7 +21,7 @@ import qualified Halogen.HTML.Events.Handler as E
 import qualified Halogen.Themes.Bootstrap3 as B
 
 -- | A `CrumbTrail` is a zipper with a current location, and crumbs behind and in front of us.
-data CrumbTrail a = CrumbTrail [Tuple String (Target a)] String [Tuple String (Target a)]
+data CrumbTrail a = CrumbTrail (Array (Tuple String (Target a))) String (Array (Tuple String (Target a)))
 
 -- | Create a breadcrumb navigation element from an array of `Crumb`s.
 breadcrumbs :: forall i. CrumbTrail i -> H.HTML i
