@@ -1,6 +1,6 @@
 -- | This module provides convenience functions for creating Bootstrap _navbars_.
 
-module Halogen.Themes.Bootstrap3.Navbar 
+module Halogen.Themes.Bootstrap3.Navbar
   ( NavBarItem(..)
   , NavItem(..)
   , NavBar()
@@ -11,8 +11,9 @@ module Halogen.Themes.Bootstrap3.Navbar
 
   , navbar
   ) where
-    
-import Data.Array (map)
+
+import Prelude
+import Data.Array ((:))
 import Data.Monoid (mempty)
 import Data.Foldable (intercalate)
 
@@ -22,7 +23,7 @@ import qualified Halogen.HTML as H
 import qualified Halogen.HTML.Attributes as A
 import qualified Halogen.HTML.Events as E
 import qualified Halogen.HTML.Events.Handler as E
-    
+
 import qualified Halogen.Themes.Bootstrap3 as B
 
 -- | A simple navigation link
@@ -33,14 +34,14 @@ type NavLink a =
   }
 
 -- | Link text and target
-type Link a = 
+type Link a =
   { text :: String
   , target :: Target a
   }
-  
+
 type NavDropDown a =
   { text :: String
-  , groups :: [[Link a]]
+  , groups :: Array (Array (Link a))
   }
 
 -- | Enumerates the different kinds of navigation item
@@ -50,7 +51,7 @@ data NavItem a
 
 -- | A navigation menu configuration
 type Nav a =
-  { items :: [NavItem a]
+  { items :: Array (NavItem a)
   }
 
 -- | Enumerates the different kinds of item which can be rendered in a navbar
@@ -62,31 +63,31 @@ data NavBarItem a
 
 -- | A navbar configuration
 type NavBar a =
-  { items :: [NavBarItem a]
+  { items :: Array (NavBarItem a)
   }
 
 -- | Create a navbar from a configuration object.
 navbar :: forall i. NavBar i -> H.HTML i
-navbar conf = 
+navbar conf =
   H.nav [ A.classes [B.navbar, B.navbarDefault] ]
         [ H.div [ A.class_ B.containerFluid ] (map renderItem conf.items) ]
-        
+
   where
   renderItem :: NavBarItem i -> H.HTML i
   renderItem (Brand o) = H.a (A.class_ B.navbarBrand : target o.target) [H.text o.text]
   renderItem (Nav o) = H.ul [ A.classes [B.nav, B.navbarNav] ] (map renderNavItem o.items)
   renderItem (Text s) = H.p [ A.class_ B.navbarText ] [H.text s]
   renderItem (Button o) = H.a (A.classes [B.btn, B.btnDefault, B.navbarBtn] : target o.target) [H.text o.text]
-  
+
   renderNavItem :: NavItem i -> H.HTML i
   renderNavItem (NavLink o) = H.li (if o.active then [A.class_ B.active] else []) [ H.a (target o.target) [ H.text o.text ] ]
-  renderNavItem (NavDropDown o) = H.li [ A.class_ B.dropdown ] 
-                                       [ H.a [ A.href "#", A.class_ B.dropdownToggle ] [H.text o.text] 
+  renderNavItem (NavDropDown o) = H.li [ A.class_ B.dropdown ]
+                                       [ H.a [ A.href "#", A.class_ B.dropdownToggle ] [H.text o.text]
                                        , H.ul [ A.class_ B.dropdownMenu ] (intercalate [divider] (map (map renderLink) o.groups))
                                        ]
     where
     divider :: H.HTML i
     divider = H.li [ A.class_ B.divider ] []
-        
+
     renderLink :: Link i -> H.HTML i
     renderLink o = H.li_ [ H.a (target o.target) [ H.text o.text ] ]
