@@ -11,7 +11,7 @@
     "output"
   ],
   "dependencies": {
-    "purescript-halogen": "master"
+    "purescript-halogen": "b1636e2537526963f89134c7b4fd8005c1b62e37"
   },
   "devDependencies": {
     "bootstrap": "~3.3.2"
