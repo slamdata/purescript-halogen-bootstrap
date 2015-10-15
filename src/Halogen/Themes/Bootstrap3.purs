@@ -2,7 +2,7 @@
 
 module Halogen.Themes.Bootstrap3 where
 
-import Halogen.HTML.Attributes (ClassName(), className)
+import Halogen.HTML (ClassName(), className)
 
 active :: ClassName
 active = className "active"
