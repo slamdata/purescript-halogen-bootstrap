@@ -4,13 +4,13 @@ module Halogen.Themes.Bootstrap3.InputGroup where
 
 import Prelude
 
-import Data.Maybe
+import Data.Maybe (Maybe())
 import Data.Foldable (foldMap)
 
-import qualified Halogen.HTML.Indexed as H
-import qualified Halogen.HTML.Properties.Indexed as P
+import Halogen.HTML.Indexed as H
+import Halogen.HTML.Properties.Indexed as P
 
-import qualified Halogen.Themes.Bootstrap3 as B
+import Halogen.Themes.Bootstrap3 as B
 
 -- | Represents an input group add-on element
 -- |

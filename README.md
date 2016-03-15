@@ -12,7 +12,6 @@ A Bootstrap 3 theme for `purescript-halogen`.
 bower install purescript-halogen-bootstrap
 ```
 
-## Module documentation
+## Documentation
 
-- [Halogen.Themes.Bootstrap3](docs/Halogen/Themes/Bootstrap3.md)
-- [Halogen.Themes.Bootstrap3.InputGroup](docs/Halogen/Themes/Bootstrap3/InputGroup.md)
+Module documentation is [published on Pursuit](http://pursuit.purescript.org/packages/purescript-halogen-bootstrap).
