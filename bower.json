@@ -10,7 +10,6 @@
     "bower_components",
     "node_modules",
     "output",
-    "test",
     "bower.json",
     "package.json"
   ],

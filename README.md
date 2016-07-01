@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/slamdata/purescript-halogen-bootstrap.svg?branch=master)](https://travis-ci.org/slamdata/purescript-halogen-bootstrap)
 [![Dependency Status](https://www.versioneye.com/user/projects/5620ca2f36d0ab0019000841/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5620ca2f36d0ab0019000841)
 
-A Bootstrap 3 theme for `purescript-halogen`.
+Bootstrap 3 classes and utilities for `purescript-halogen`.
 
 ## Installation
 
