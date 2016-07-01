@@ -26,7 +26,7 @@ data AddOn p i
 inputGroup :: forall p i. Maybe (AddOn p i) -> H.HTML p i -> Maybe (AddOn p i) -> H.HTML p i
 inputGroup before ctl after =
   H.div [ P.class_ B.inputGroup ] $
-    foldMap addon before ++ [ctl] ++ foldMap addon after
+    foldMap addon before <> [ctl] <> foldMap addon after
   where
     addon :: AddOn p i -> Array (H.HTML p i)
     addon (RegularAddOn el) = [ H.span [P.class_ B.inputGroupAddon] [el] ]
