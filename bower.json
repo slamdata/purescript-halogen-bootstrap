@@ -14,9 +14,9 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-halogen": "^0.10.0"
+    "purescript-halogen": "^0.11.0"
   },
   "devDependencies": {
-    "bootstrap": "~3.3.2"
+    "bootstrap": "~3.3.7"
   }
 }
