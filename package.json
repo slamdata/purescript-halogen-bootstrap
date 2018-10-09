@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "clean": "rimraf output && rimraf .pulp-cache",
+    "generate-bootstrap": "cd dev && ./GenerateBootstrap.hs > ../src/Halogen/Themes/Bootstrap4.purs",
     "build": "pulp build -- --censor-lib --strict"
   },
   "devDependencies": {
